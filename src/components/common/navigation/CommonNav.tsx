@@ -35,8 +35,8 @@ export const CommonNav = () => {
     })
 
     return (
-        <div className={'flex items-center justify-center w-full h-[50px] gap-8 border-b-1 border-gray-300'}>
+        <nav className={'flex items-center justify-center w-full h-[50px] gap-8 border-b-1 border-gray-300'}>
             {navLinks}
-        </div>
+        </nav>
     )
 }

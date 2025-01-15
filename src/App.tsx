@@ -4,6 +4,7 @@ import './index.css'
 // 페이지 컴포넌트
 import {MainPage} from "@/pages/index";
 
+
 function App() {
     return (
         <BrowserRouter>

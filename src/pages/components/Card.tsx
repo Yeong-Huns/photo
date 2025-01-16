@@ -2,12 +2,13 @@ import {CardDTO} from "@/pages/index/types/card.ts";
 
 interface Props {
     data: CardDTO;
+    handleDialog: (eventValue: boolean) => void;
 }
 
-export const Card = ({ data }:Props) => {
+export const Card = ({ data, handleDialog }:Props) => {
 
     const openDialog = () => {
-        console.log('함수호출');
+        handleDialog(true);
     }
 
     return <div className={'lg:w-50 lg:h-50 w-64 h-64 bg-gray-200 rounded-md cursor-pointer'}>

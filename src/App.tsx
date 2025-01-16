@@ -3,15 +3,18 @@ import './index.css'
 
 // 페이지 컴포넌트
 import {MainPage} from "@/pages/index";
+import {RecoilRoot} from "recoil";
 
 
 function App() {
     return (
-        <BrowserRouter>
-            <Routes>
-                <Route index path={"/"} element={<MainPage/>}/>
-            </Routes>
-        </BrowserRouter>
+        <RecoilRoot>
+            <BrowserRouter>
+                <Routes>
+                    <Route index path={"/"} element={<MainPage/>}/>
+                </Routes>
+            </BrowserRouter>
+        </RecoilRoot>
     )
 }
 

@@ -13,10 +13,10 @@ import {useState} from "react";
 export const MainPage =  () => {
     const imgLoader = useRecoilValueLoadable(imageData);
     const [open, setOpen] = useState<boolean>(false); // Dialog 상태관리
-    //const [imgData, setImgData] = useState<CardDTO[]>([]);
+    const [imgData, setImgData] = useState<CardDTO>();
 
     const CARD_LIST = imgLoader.state === 'hasValue' ? imgLoader.contents.map((card: CardDTO) => {
-        return <Card data={card} key={card.id} handleDialog={setOpen}/>;
+        return <Card data={card} key={card.id} handleDialog={setOpen} handleSetData={setImgData}/>;
     }) : null;
 
     return (
@@ -53,8 +53,7 @@ export const MainPage =  () => {
             </div>
             {/*공통 푸터 UI 부분*/}
             <CommonFooter/>
-            {open && <DetailDialog/>}
-            {null}
+            {open && <DetailDialog data={imgData} handleDialog={setOpen}/>}
         </div>
     )
 }

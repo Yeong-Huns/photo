@@ -1,6 +1,9 @@
 import {useEffect, useState} from "react";
 import axios from "axios";
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
+import {useRecoilState} from "recoil";
+import {searchState} from "@/store/atoms/searchState.ts";
+import {pageState} from "@/store/atoms/pageState.ts";
 
 interface Navigation {
     index: number;
@@ -11,7 +14,10 @@ interface Navigation {
 }
 
 export const CommonNav = () => {
+    const location = useLocation();
     const [navigation, setNavigation] = useState<Navigation[]>([]);
+    const [page, setPage] = useRecoilState(pageState);
+    const [search, setSearch] = useRecoilState(searchState);
 
     useEffect(() => {
         const fetchNavigation = async () => {
@@ -24,11 +30,26 @@ export const CommonNav = () => {
             }
         }
         fetchNavigation();
-    }, [])
+    }, []);
+
+    useEffect(() => {
+        //console.log(location.pathname);
+        navigation.forEach((nav: Navigation) => {
+            nav.isActive = false;
+            if(nav.path === location.pathname || location.pathname.includes(nav.path)){
+                nav.isActive = true;
+                setSearch(nav.searchValue);
+                setPage(1);
+            }
+        })
+        setNavigation([...navigation]);
+    }, [location.pathname]);
 
     const navLinks = navigation.map((item: Navigation) => {
+
         return (
-            <Link to={item.path} key={item.path} className={'flex items-center justify-center h-full no-underline text-gray-500 font-medium'}>
+            <Link to={item.path} key={item.path}
+                  className={'flex items-center justify-center h-full no-underline font-medium ' + (item.isActive ? 'text-gray-900 border-b-2 border-gray-400 font-semibold' : 'text-gray-500 border-b-none')}>
                 <span>{item.label}</span>
             </Link>
         )

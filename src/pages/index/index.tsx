@@ -3,11 +3,11 @@ import {CommonHeader} from "@components/common/header/CommonHeader.tsx";
 import {CommonSearch} from "@components/common/searchBar/CommonSearch.tsx";
 import {CommonNav} from "@components/common/navigation/CommonNav.tsx";
 import {CommonFooter} from "@components/common/footer/CommonFooter.tsx";
-import {Card} from "@/pages/components/Card.tsx";
 import {CardDTO} from "@/pages/index/types/card.ts";
 import {imageData} from "@/store/selectors/imageSelectors.ts";
 import {DetailDialog} from "@components/common/dialog/DetailDialog.tsx";
-import {useState} from "react";
+import {useMemo, useState} from "react";
+import {Card} from "@/pages/components/Card.tsx";
 
 
 export const MainPage =  () => {
@@ -15,9 +15,19 @@ export const MainPage =  () => {
     const [open, setOpen] = useState<boolean>(false); // Dialog 상태관리
     const [imgData, setImgData] = useState<CardDTO>();
 
-    const CARD_LIST = imgLoader.state === 'hasValue' ? imgLoader.contents.map((card: CardDTO) => {
+    /*const CARD_LIST = imgLoader.state === 'hasValue' ? imgLoader.contents.map((card: CardDTO) => {
         return <Card data={card} key={card.id} handleDialog={setOpen} handleSetData={setImgData}/>;
-    }) : null;
+    }) : null;*/
+
+    const CARD_LIST = useMemo(() => {
+        if(imgLoader.state === "hasValue"){
+            return imgLoader.contents.map((card: CardDTO) => {
+                return <Card data={card} key={card.id} handleDialog={setOpen} handleSetData={setImgData}/>;
+            });
+        } else {
+            return <div>loading...</div>
+        }
+    }, [imgLoader])
 
     return (
         <div className="flex flex-col items-center justify-start w-full min-h-screen">

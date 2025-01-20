@@ -1,24 +1,23 @@
 import {ChangeEvent, KeyboardEvent, useState} from "react";
 import {useRecoilState} from "recoil";
 import {searchState} from "@/store/atoms/searchState.ts";
+import {pageState} from "@/store/atoms/pageState.ts";
 
 export const CommonSearch = () => {
     const [search, setSearch] = useRecoilState(searchState)
+    const [page, setPage] = useRecoilState(pageState
+    );
     const [text, setText] = useState('');
     const onSearch = () => {
-        if(text===''){
-            setSearch('Korea');
-        }else {
-            setSearch(text);
-        }
+        if(text==='') setSearch('Korea');
+        else setSearch(text);
+        setPage(1);
     }
     const handleKeyDown = (event: KeyboardEvent) => {
         if(event.key === 'Enter') {
-            if(text===''){
-                setSearch('Korea');
-            }else {
-                setSearch(text);
-            }
+            if(text==='') setSearch('Korea');
+            else setSearch(text);
+            setPage(1);
         }
     }
     return <div className={'flex items-center gap-7'}>

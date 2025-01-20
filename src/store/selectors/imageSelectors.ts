@@ -17,11 +17,10 @@ export const imageData =  selector({
         try{
             const res =  await axios.get(`${API_URL}?query=${searchValue}&client_id=${API_KEY}&page=${pageValue}&per_page=${PER_PAGE}`);
             console.log(res);
-            return res.data.results;
+            return res.data;
             //if(res.status === 200) setImgUrls(res.data.results);
         }catch(e){
             console.error(e);
-            throw e;
         }
     }
 })

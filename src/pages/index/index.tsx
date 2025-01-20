@@ -8,6 +8,7 @@ import {imageData} from "@/store/selectors/imageSelectors.ts";
 import {DetailDialog} from "@components/common/dialog/DetailDialog.tsx";
 import {useMemo, useState} from "react";
 import {Card} from "@/pages/components/Card.tsx";
+import {SimpleSpinner} from "@/pages/components/Loading.tsx";
 
 
 export const MainPage =  () => {
@@ -21,11 +22,11 @@ export const MainPage =  () => {
 
     const CARD_LIST = useMemo(() => {
         if(imgLoader.state === "hasValue"){
-            return imgLoader.contents.map((card: CardDTO) => {
+            return imgLoader.contents.results.map((card: CardDTO) => {
                 return <Card data={card} key={card.id} handleDialog={setOpen} handleSetData={setImgData}/>;
             });
         } else {
-            return <div>loading...</div>
+            return <SimpleSpinner/>
         }
     }, [imgLoader])
 

@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#toast__container {
+    position: fixed; /* 위치 고정 */
+    z-index: 50; /* 다이얼로그보다 높은 값으로 설정 */
+    top: 20px; /* 원하는 위치로 조정 가능 */
+    right: 20px;
+    left: auto;
+    bottom: auto;
+}
+
+/* react-simple-toasts의 토스트 내용 스타일 오버라이드 */
+.toast__content {
+    color: white; /* 텍스트 색상 */
+    background-color: rgba(0, 0, 0, 0.8); /* 배경색 */
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 300px; /* 토스트의 최대 너비 */
+    text-align: center; /* 텍스트 중앙 정렬 */
+}

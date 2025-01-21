@@ -32,7 +32,7 @@ export const DetailDialog = ({data, handleDialog}: Props) => {
                 const next = prev.filter((item:CardDTO) => item.id !== selectedData.id);
                 localStorage.setItem('bookmark', JSON.stringify(next));
                 //toast("해당 이미지를 북마크에서 제거하였습니다.");
-                addToast("해당 이미지를 북마크에서 제거하였습니다.", "info");
+                addToast("해당 이미지를 북마크에서 제거하였습니다.", "error");
             } else {
                 const prev = [...JSON.parse(localStorage.getItem('bookmark')), selectedData];
                 localStorage.setItem('bookmark', JSON.stringify(prev));

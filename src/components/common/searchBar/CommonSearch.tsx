@@ -21,7 +21,7 @@ export const CommonSearch = () => {
         }
     }
     return <div className={'flex items-center gap-7'}>
-        <div className={'flex items-center justify-start w-[50vw] p-4 gap-4 rounded-full  bg-gray-400 shadow-lg hover:bg-gray-300 hover:bg-opacity-70  bg-opacity-70 '}>
+        <div className={'flex items-center justify-start w-[50vw] p-4 gap-4 rounded-full  bg-gray-400 shadow-lg focus-within:bg-gray-300 focus-within:bg-opacity-70 hover:bg-gray-300 hover:bg-opacity-70  bg-opacity-70 '}>
             <input
                 type={'text'}
                 placeholder={'찾으실 이미지를 검색하세요.'}

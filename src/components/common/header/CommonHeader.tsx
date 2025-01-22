@@ -10,8 +10,7 @@ export const CommonHeader = () => {
 
     return <header className={'flex items-center justify-between w-full px-4 p-2'}>
         <div className={'flex items-center justify-center h-full gap-2 cursor-pointer'} onClick={()=> moveToPage('main')}>
-            <img className={'h-7'} src={"src/assets/images/img_1.png"} alt={"logo"}/>
-            <span className={'text-2xl font-semibold'}>photoSplash</span>
+            <img className={'h-7'} src={"src/assets/icons/logo.svg"} alt={"logo"}/>
         </div>
         <div className={'flex items-center justify-center gap-4'}>
             <button className={'flex items-center justify-center cursor-pointer px-[10px] py-[6px] border font-semibold border-gray-300 rounded text-gray-400 bg-white'}>사진제출</button>

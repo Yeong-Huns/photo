@@ -40,13 +40,13 @@ export const MainPage =  () => {
                 <div
                     className="flex items-center justify-center w-full h-2/5 bg-cover"
                     style={{
-                        backgroundImage: "url('src/assets/images/img.png')",
+                        backgroundImage: "url('src/assets/images/img_main2.jpg')",
                         backgroundPosition: '100% 15%',
                     }}
                 >
                     <div className="flex flex-col">
                         <span className="mb-1 text-white text-[3rem] font-bold">
-                            PhotoSplash
+                            놀라운 무료 이미지
                         </span>
                         <span className="text-white mb-8">
                             인터넷의 시각 자료 출처입니다. <br/>

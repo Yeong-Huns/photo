@@ -19,7 +19,7 @@ function App() {
             <BrowserRouter>
                 <Routes>
                     <Route index path={"/"} element={<MainPage/>}/>
-                    <Route path={'/:id'} element={<MainPage/>}/>
+                    <Route path={'search/:id'} element={<MainPage/>}/>
                     <Route path={'/bookmark'} element={<BookmarkPage/>}/>
                 </Routes>
                 <ToastContainer />

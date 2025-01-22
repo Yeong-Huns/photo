@@ -16,8 +16,8 @@ interface Navigation {
 export const CommonNav = () => {
     const location = useLocation();
     const [navigation, setNavigation] = useState<Navigation[]>([]);
-    const [page, setPage] = useRecoilState(pageState);
-    const [search, setSearch] = useRecoilState(searchState);
+    const [, setPage] = useRecoilState(pageState);
+    const [, setSearch] = useRecoilState(searchState);
 
     useEffect(() => {
         const fetchNavigation = async () => {
@@ -49,14 +49,14 @@ export const CommonNav = () => {
 
         return (
             <Link to={item.path} key={item.path}
-                  className={'flex items-center justify-center h-full no-underline font-medium ' + (item.isActive ? 'text-gray-900 border-b-2 border-gray-400 font-semibold' : 'text-gray-500 border-b-none')}>
+                  className={'flex items-center justify-center h-full no-underline font-medium ' + (item.isActive ? 'text-gray-900 border-b-2 border-blue-500 font-semibold' : 'text-gray-500 border-b-none')}>
                 <span>{item.label}</span>
             </Link>
         )
     })
 
     return (
-        <nav className={'flex items-center justify-center w-full h-[50px] gap-8 border-b-1 border-gray-300'}>
+        <nav className={'flex items-center justify-center w-full h-[50px] gap-12 border-b-1 border-gray-300'}>
             {navLinks}
         </nav>
     )

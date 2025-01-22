@@ -1,6 +1,5 @@
 import {CardDTO} from "@/pages/index/types/card.ts";
 import {useEffect, useState} from "react";
-import {toast} from "react-simple-toasts";
 import {useToast} from "@/hooks/useToast.ts";
 
 
@@ -47,7 +46,12 @@ export const DetailDialog = ({data, handleDialog}: Props) => {
         if(getLocalStorageItem && getLocalStorageItem.findIndex((item: CardDTO) => item.id === data.id) > -1){
             setBookmark(true)
         } else if (!getLocalStorageItem) return
-    }, [data]);
+        const escKeyDown = (event: KeyboardEvent) => {
+            if(event.key === 'Escape') closeDialog();
+        }
+        document.addEventListener("keydown", escKeyDown);
+        return () => document.removeEventListener("keydown", escKeyDown);
+    }, []);
 
     return <div className={'fixed inset-0 z-10 flex items-center justify-center w-full h-screen bg-transparent'}>
         <div className={'flex flex-col items-center justify-between w-1/2 h-[700px] bg-white rounded-xl'}>

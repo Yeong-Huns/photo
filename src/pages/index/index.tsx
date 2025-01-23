@@ -1,5 +1,4 @@
 import {useRecoilValueLoadable} from "recoil";
-import {CommonHeader} from "@components/common/header/CommonHeader.tsx";
 import {CommonSearch} from "@components/common/searchBar/CommonSearch.tsx";
 import {CommonNav} from "@components/common/navigation/CommonNav.tsx";
 import {CommonFooter} from "@components/common/footer/CommonFooter.tsx";
@@ -33,12 +32,12 @@ export const MainPage =  () => {
     return (
         <div className="flex flex-col items-center justify-start w-full min-h-screen">
             {/* 공통 헤더 UI 부분 */}
-            <CommonHeader/>
+            {/*<CommonHeader/>*/}
             {/* 공통 네비게이션 UI 부분 */}
             <CommonNav/>
-            <div className="flex flex-col items-center justify-start w-full h-[calc(100vh-56px-50px-50px)]">
+            <div className="flex flex-col items-center justify-start w-full ">
                 <div
-                    className="flex items-center justify-center w-full h-2/5 bg-cover"
+                    className="flex items-center justify-center w-full h-80 bg-cover"
                     style={{
                         backgroundImage: "url('src/assets/images/img_main2.jpg')",
                         backgroundPosition: '100% 15%',
@@ -50,13 +49,13 @@ export const MainPage =  () => {
                         </span>
                         <span className="text-white mb-8">
                             인터넷의 시각 자료 출처입니다. <br/>
-                            모든 지역에 있는 크리에이티브들의 지원을 받습니다.
+                            우리의 관대한 커뮤니티를 통해 공유되는 0.1 백만개의 이미지와 비디오를 살펴보세요.
                         </span>
                         {/* 검색창 UI 부분 */}
                         <CommonSearch/>
                     </div>
                 </div>
-                <div className="flex items-center justify-center w-full h-3/5 flex-wrap p-4 px-[60px] gap-4 overflow-y-scroll">
+                <div className="grid grid-cols-4 p-4 gap-6">
                     {/*이미지박스*/}
                     {CARD_LIST}
                 </div>

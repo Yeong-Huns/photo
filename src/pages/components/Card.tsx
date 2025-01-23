@@ -13,7 +13,7 @@ export const Card = ({ data, handleDialog, handleSetData }:Props) => {
         handleSetData(data);
     }
 
-    return <div className={'lg:w-50 lg:h-50 w-64 h-64 bg-gray-200 rounded-md cursor-pointer'}>
-        <img className={'w-full h-full rounded-md object-cover'} src={data.urls.small} alt={data.alt_description} onClick={openDialog}/>
+    return <div className={'bg-gray-200 rounded-md cursor-pointer'}>
+        <img className={'w-full h-80 object-cover hover:scale-105 transition ease-in-out rounded-md'} src={data.urls.small} alt={data.alt_description} onClick={openDialog}/>
     </div>
 }

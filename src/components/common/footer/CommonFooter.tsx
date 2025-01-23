@@ -48,10 +48,10 @@ export const CommonFooter = () => {
     }
 
 
-    return <footer className={'flex items-center justify-center w-full h-14 px-4 border border-gray-100 bg-white'}>
+    return <footer className={'flex items-center justify-center w-full h-14 px-4 border border-gray-100 bg-white sticky bottom-0 bg-white bg-opacity-90'}>
         <div className={'flex items-center justify-center w-full gap-2'}>
             <button onClick={moveToPrev}
-                    className={'flex items-center justify-center w-6 h-6 py-1 px 2 text-gray-300 font-sans text-lg font-bold leading-4 bg-transparent border-none outline-none cursor-pointer hover:bg-gray-200 hover:border rounded-se hover:text-gray-700 focus:bg-gray-200 transition duration-300'}>
+                    className={'flex items-center justify-center w-7 h-7 p-1 text-gray-300 font-sans text-lg font-bold leading-4 bg-transparent border-none outline-none cursor-pointer hover:bg-gray-200 hover:border rounded-full hover:text-gray-700 focus:bg-gray-200 transition duration-300'}>
                 <img src={'src/assets/icons/icon-arrowLeft.svg'} alt={'왼쪽화살표'}/>
             </button>
             {/*변경될 UI 부분*/}
@@ -59,14 +59,14 @@ export const CommonFooter = () => {
                 res[step] &&
                 res[step].map((item:number, index:number) => {
                     if(item < 11) {
-                        return <button className={index === page - 1 ? `text-gray-700 w-7 h-7 font-semibold bg-gray-200 p-2 flex justify-center items-center rounded-full` : `text-gray-700 w-7 h-7 font-medium p-2 flex justify-center items-center`} key={item} onClick={()=>moveToPage(item)}>{item}</button>
+                        return <button className={`text-gray-700 w-7 h-7 p-2 flex justify-center items-center hover:bg-gray-200 rounded-full transition duration-300 ${index === page - 1 && 'font-semibold bg-gray-300'}`} key={item} onClick={()=>moveToPage(item)}>{item}</button>
                     } else {
-                        return <button className={index === page - 1 - step * 10 ? `text-gray-700 w-7 h-7 font-semibold bg-gray-200 p-2 flex justify-center items-center rounded-full` : `text-gray-700 w-7 h-7 font-medium p-2 flex justify-center items-center`} key={item} onClick={() => moveToPage(item)}>{item}</button>
+                        return <button className={`text-gray-700 w-7 h-7 p-2 flex justify-center items-center hover:bg-gray-200 rounded-full transition duration-300 ${index === page - 1 - step * 10 && 'font-semibold bg-gray-300'}`} key={item} onClick={() => moveToPage(item)}>{item}</button>
                     }
                 })
             }
             <button onClick={moveToNext}
-                className={'flex items-center justify-center w-6 h-6 py-1 px 2 text-gray-300 font-sans text-lg font-bold leading-4 bg-transparent border-none outline-none cursor-pointer hover:bg-gray-200 hover:border rounded-se hover:text-gray-700 focus:bg-gray-200 transition duration-300'}>
+                className={'flex items-center justify-center w-7 h-7 p-1 text-gray-300 font-sans text-lg font-bold leading-4 bg-transparent border-none outline-none cursor-pointer hover:bg-gray-200 hover:border rounded-full hover:text-gray-700 focus:bg-gray-200 transition duration-300'}>
                 <img src={'src/assets/icons/icon-arrowRight.svg'} alt={'오른쪽화살표'}/>
             </button>
         </div>

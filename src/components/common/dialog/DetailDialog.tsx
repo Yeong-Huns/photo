@@ -54,7 +54,7 @@ export const DetailDialog = ({data, handleDialog}: Props) => {
     }, []);
 
     return <div className={'fixed inset-0 z-10 flex items-center justify-center w-full h-screen bg-transparent'}>
-        <div className={'flex flex-col items-center justify-between w-1/2 h-[700px] bg-white rounded-xl'}>
+        <div className={'flex flex-col items-center justify-between w-1/2 h-[700px] bg-gray-100 rounded-xl'}>
             <div className={'flex items-center justify-between w-full h-[70px] px-4 border-b border-gray-300 flex-shrink-0'}>
                 <div className={'flex items-center justify-start gap-2'}>
                     <button className={'flex items-center justify-center border-none outline-none bg-transparent cursor-pointer'} onClick={closeDialog}>

@@ -63,13 +63,13 @@ export const CommonNav = () => {
 
     return (
         <header className={'flex items-center justify-between w-full p-3 bg-white bg-opacity-90  border-b-1 border-gray-300 sticky top-0 z-50'}>
-            <div className={'flex items-center justify-center w-[8%] h-full gap-2 cursor-pointer'} onClick={()=> moveToPage('main')}>
+            <div className={'flex items-center justify-center min-w-[10%] h-full gap-2 cursor-pointer'} onClick={()=> moveToPage('main')}>
                 <img className={'h-7'} src={"src/assets/icons/logo.svg"} alt={"logo"}/>
             </div>
             {navLinks}
-            <div className={'flex items-center justify-between w-[10%] mr-3'}>
+            <div className={'flex items-center justify-between min-w-[10%] mr-3'}>
                 <button onClick={()=>moveToPage('bookmark')}
-                        className={'flex items-center justify-center cursor-pointer px-3 py-2 border-none font-semibold border-gray-300 rounded-full text-gray-400 bg-transparent hover:bg-white hover:bg-opacity-75 ease-in-out transition duration-300'}>북마크
+                        className={'flex flex-1 items-center justify-center cursor-pointer px-3 py-2 border-none font-semibold border-gray-300 rounded-full text-gray-400 bg-transparent hover:bg-white hover:bg-opacity-75 ease-in-out transition duration-300'}>북마크
                 </button>
                 <span className={'text-gray-400 font-semibold text-md'}>YeongHun</span>
             </div>

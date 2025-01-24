@@ -6,7 +6,7 @@ type Props = {
 
 const Card = ({prop} : Props ) => {
 
-    return <div className={'flex flex-col w-[282px] h-[360px] rounded-xl bg-white shadow-lg'}>
+    return <div className={'flex flex-col w-full h-full object-cover hover:scale-105 transition ease-in-out rounded-md bg-white shadow-lg'}>
         <div className={'flex items-center justify-center w-full h-[192px] rounded-t-xl bg-gray-300'}>
             <img src={prop.urls.small} alt={'사진이미지'} className={'w-full h-full rounded-t-xl object-cover'}/>
         </div>
